@@ -59,6 +59,10 @@ public class PersonManager {
 		// for loop 돌림
 		for (PersonEntity person : persons) {
 			if(person.getName().equals(name)) {
+				System.out.println("[이름] " + person.getName());
+				System.out.println("[성별] " + person.getGender());
+				System.out.println("[전화번호] " + person.getPhone());
+				System.out.println("[주소] " + person.getAddress());
 				// 찾으면 바로 빠진다
 				break;
 			}
