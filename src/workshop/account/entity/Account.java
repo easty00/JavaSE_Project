@@ -25,11 +25,19 @@ public class Account {
 	public int getBalance() {
 		return balance;
 	}
-	public void setBalance(int balance) {
-		this.balance = balance;
+	
+	// 4번. 2개 메서드 추가
+	public void deposit(int amount) {
+		// 풀어씀. 아래가 축약 : this.balance = this.balance + amount;
+		this.balance += balance;
+	}
+
+	// 익셉션 처리
+	public void withdraw(int amount) {
+		this.balance -= balance;
 	}
 	
-	
+	// 하나 끝. 어카운트 테스트 클래스 작성해야함.
 	
 	
 }
