@@ -5,8 +5,6 @@ public class TestIntArray {
 	public static void main(String[] args) {
 		//TODO int 타입의 1차원 배열을 연습해봄 완성을 덜함
 		
-		//int 타입의 배열을 선언
-		int[] nums;
 		int nums2[] = {100,200,300,400,500,600};
 		
 		// 기존의 for loop. 자바 1.0? 때 있던것
@@ -20,10 +18,11 @@ public class TestIntArray {
 		System.out.println("배열값의 합은 :" + getSum(nums2));
 		
 		//배열을 생성
+		int[] nums;
 		nums = new int[3];
-		System.out.println(nums.length);
-		System.out.println(nums);
-		System.out.println(nums[0]);
+		System.out.println(nums.length); //3
+		System.out.println(nums); //[I@2a139a55
+		System.out.println(nums[0]); //0
 		//System.out.println(nums[3]);  ArrayIndexOutofBoundsException 발생
 		fillArray(nums);
 		
@@ -57,6 +56,7 @@ public class TestIntArray {
 			System.out.println(i);
 		}
 	}
+	
 	public static void fillArray (int[] nums) {
 		nums[0] = 10;
 		nums[1] = 20;

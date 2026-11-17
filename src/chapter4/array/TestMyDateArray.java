@@ -16,7 +16,7 @@ public class TestMyDateArray {
 		//3. 배열 출력하기
 		test.printArray(dates);
 		
-	}//main
+	}//main / non-static
 	public void fillArray(MyDate[] dates) {
 		dates[0] = new MyDate(2013, 7, 17);
 		dates[1] = new MyDate(2014, 8, 1);
