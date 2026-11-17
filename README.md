@@ -19,67 +19,67 @@
       - 이후 생성자에 관련한 AI 와의 대화를 아래에 첨부한다.
 
 
-## Student 생성자에 throws가 붙는 이유
-<details>
-<summary><b>펼쳐 보기</b></summary>
----
-
-### Q1. 생성자의 throws가 뭔지 모르겠어
-
-#### throw vs throws
-| | 위치 | 뜻 |
-|---|---|---|
-| `throw` | 메서드 안 | 예외를 실제로 던짐 |
-| `throws` | 메서드 선언부 `)` 뒤 | "이 메서드는 예외를 던질 수 있다"고 미리 알림 |
-
-#### 생성자에 throws가 필요한 이유
-- 생성자 안에서 `setGrade(grade)`를 호출함
-- setGrade는 `throws InvalidGradeException`이 선언된 메서드
-- 예외를 던질 수 있는 메서드를 호출하는 쪽은 둘 중 하나를 해야 함
-  1. 직접 처리 → try-catch
-  2. 호출한 쪽으로 넘기기 → throws
-- 둘 다 안 하면 컴파일 에러 (InvalidGradeException이 Exception을 상속한 checked 예외이기 때문)
-
-```java
-public Student(String studentId, String name, String major, int grade) throws InvalidGradeException {
-    setStudentId(studentId);
-    setName(name);
-    setMajor(major);
-    setGrade(grade);
-}
-```
-
-#### 생성자에서 catch하지 않고 넘기는 이유
-- 생성자가 직접 잡으면 grade가 0인 학생 객체가 그대로 만들어짐
-- 호출한 StudentTest는 문제가 생긴 걸 알 수 없음
-- 넘기면 예외가 아래 순서로 전달되어 StudentTest에서 메시지 출력 가능
-
-```
-setGrade(throw) → 생성자(throws) → StudentTest(main)에서 catch → 메시지 출력
-```
-
----
-
-### Q2. account 예제와 달리 생성자도 throw를 던지는 이유가, account는 추가 메서드로 exception을 처리하지만 얘는 setGrade가 처리해서야?
-
-→ 거의 맞음. 정확한 기준은 **"생성자가 예외를 던지는 메서드를 호출하느냐"**
-
-#### Account 예제와의 차이
-- Account: 생성자는 `this.balance = balance;`로 바로 저장하고, 예외는 출금 메서드에서만 발생
-  → 생성자가 예외 던지는 메서드를 부르지 않으므로 throws 불필요
-- Student: 생성자가 `setGrade(grade)`를 호출
-  → 생성 도중에도 예외가 날 수 있으므로 throws 필요
-
-#### 용어 정리: "처리"와 "던지기"는 다름
-- 예외에서 **처리**는 catch로 잡는 것
-- setGrade는 예외를 처리하는 게 아니라 **던지는** 쪽
-  - 던지기(throw/throws): setGrade, 생성자
-  - 처리하기(catch): StudentTest
-
-#### 생성자에서 setGrade를 호출하는 이유
-- 생성자에서 `this.grade = grade;`로 바로 저장하면 throws는 필요 없음
-- 하지만 `new Student(..., 5)`처럼 처음 만들 때는 검사를 안 거쳐서 5학년 학생이 생성됨
-- 학년은 처음 만들 때도 1~4여야 하므로 생성자도 setGrade의 검사를 거치게 함
-  → 그 결과 생성자에도 throws가 붙음
-  
-</details>
+        #### Student 생성자에 throws가 붙는 이유
+        <details>
+        <summary><b>펼쳐 보기</b></summary>
+        ---
+        
+        ### Q1. 생성자의 throws가 뭔지 모르겠어
+        
+        #### throw vs throws
+        | | 위치 | 뜻 |
+        |---|---|---|
+        | `throw` | 메서드 안 | 예외를 실제로 던짐 |
+        | `throws` | 메서드 선언부 `)` 뒤 | "이 메서드는 예외를 던질 수 있다"고 미리 알림 |
+        
+        #### 생성자에 throws가 필요한 이유
+        - 생성자 안에서 `setGrade(grade)`를 호출함
+        - setGrade는 `throws InvalidGradeException`이 선언된 메서드
+        - 예외를 던질 수 있는 메서드를 호출하는 쪽은 둘 중 하나를 해야 함
+          1. 직접 처리 → try-catch
+          2. 호출한 쪽으로 넘기기 → throws
+        - 둘 다 안 하면 컴파일 에러 (InvalidGradeException이 Exception을 상속한 checked 예외이기 때문)
+        
+        ```java
+        public Student(String studentId, String name, String major, int grade) throws InvalidGradeException {
+            setStudentId(studentId);
+            setName(name);
+            setMajor(major);
+            setGrade(grade);
+        }
+        ```
+        
+        #### 생성자에서 catch하지 않고 넘기는 이유
+        - 생성자가 직접 잡으면 grade가 0인 학생 객체가 그대로 만들어짐
+        - 호출한 StudentTest는 문제가 생긴 걸 알 수 없음
+        - 넘기면 예외가 아래 순서로 전달되어 StudentTest에서 메시지 출력 가능
+        
+        ```
+        setGrade(throw) → 생성자(throws) → StudentTest(main)에서 catch → 메시지 출력
+        ```
+        
+        ---
+        
+        ### Q2. account 예제와 달리 생성자도 throw를 던지는 이유가, account는 추가 메서드로 exception을 처리하지만 얘는 setGrade가 처리해서야?
+        
+        → 거의 맞음. 정확한 기준은 **"생성자가 예외를 던지는 메서드를 호출하느냐"**
+        
+        #### Account 예제와의 차이
+        - Account: 생성자는 `this.balance = balance;`로 바로 저장하고, 예외는 출금 메서드에서만 발생
+          → 생성자가 예외 던지는 메서드를 부르지 않으므로 throws 불필요
+        - Student: 생성자가 `setGrade(grade)`를 호출
+          → 생성 도중에도 예외가 날 수 있으므로 throws 필요
+        
+        #### 용어 정리: "처리"와 "던지기"는 다름
+        - 예외에서 **처리**는 catch로 잡는 것
+        - setGrade는 예외를 처리하는 게 아니라 **던지는** 쪽
+          - 던지기(throw/throws): setGrade, 생성자
+          - 처리하기(catch): StudentTest
+        
+        #### 생성자에서 setGrade를 호출하는 이유
+        - 생성자에서 `this.grade = grade;`로 바로 저장하면 throws는 필요 없음
+        - 하지만 `new Student(..., 5)`처럼 처음 만들 때는 검사를 안 거쳐서 5학년 학생이 생성됨
+        - 학년은 처음 만들 때도 1~4여야 하므로 생성자도 setGrade의 검사를 거치게 함
+          → 그 결과 생성자에도 throws가 붙음
+          
+        </details>
