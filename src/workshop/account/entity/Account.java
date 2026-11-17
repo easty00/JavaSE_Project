@@ -1,5 +1,7 @@
 package workshop.account.entity;
 
+import workshop.account.exception.InsufficientBalanceException;
+
 public class Account {
 	//public class Account extend Object 의 줄임이다. 숨겨져있음.
 	private String custId;
@@ -44,7 +46,13 @@ public class Account {
 	}
 
 	// 익셉션 처리
-	public void withdraw(int amount) {
+	public void withdraw(int amount) throws InsufficientBalanceException {
+		if(amount > this.balance) {
+			//Exception을 강제로 발생시킴
+			throw new InsufficientBalanceException("잔액이 부족합니다. 현재 잔액은 = ", this.balance);
+			
+		}
+		
 		this.balance -= amount;
 	}
 	
