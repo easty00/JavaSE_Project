@@ -27,15 +27,16 @@ public class AccountTest {
 			System.out.println("고객번호= " + account2.getCustId());
 			System.out.println("계좌번호= " + account2.getAcctId());
 			System.out.println("잔액= " + account2.getBalance());
-	
+
+			account2.withdraw(60000);
+			
 			// tostring: 아규먼트가 있는 생성자를 호출하거나 값을 출력하는 부분을 한꺼번에 호출해도 되지만, 투스트링 메서드를 사용한다.
 			// ToString();
 			// getClass().getName() + '@' + Integer.toHexString(hashCode())
 			// workshop.account.entity.Account@2a139a55
 			System.out.println(account2);
 		} catch (InsufficientBalanceException e) {
-			// TODO : handle exception
-			System.err.println("Error 메시지 = " + e.getMessage() + e.getCurrentBalance());
+			System.out.println("Error 메시지 = " + e.getMessage() + e.getCurrentBalance());
 		}
 
 	}

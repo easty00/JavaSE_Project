@@ -5,7 +5,7 @@ package workshop.account.exception;
  */
 public class InsufficientBalanceException extends Exception {
 	// 현재잔액
-	private int currentBalance
+	private int currentBalance;
 	
 	// 생성자 만들기. 에러와 커렌트밸런스를 받도록
 	// 유징필드, 수퍼클래스 사용
