@@ -1,9 +1,20 @@
 package workshop.account.entity;
 
 public class Account {
+	//public class Account extend Object 의 줄임이다. 숨겨져있음.
 	private String custId;
 	private String acctId;
 	private int balance ;
+	
+	public Account() {
+		
+	}
+
+	public Account(String custId, String acctId, int balance) {
+		this.custId = custId;
+		this.acctId = acctId;
+		this.balance = balance;
+	}
 
 	//Method 선언
 	// setacct .. 에 컨트롤 스페이스바를 눌러 낱개로 반복문 작성가능
@@ -29,15 +40,19 @@ public class Account {
 	// 4번. 2개 메서드 추가
 	public void deposit(int amount) {
 		// 풀어씀. 아래가 축약 : this.balance = this.balance + amount;
-		this.balance += balance;
+		this.balance += amount;
 	}
 
 	// 익셉션 처리
 	public void withdraw(int amount) {
-		this.balance -= balance;
+		this.balance -= amount;
 	}
 	
 	// 하나 끝. 어카운트 테스트 클래스 작성해야함.
 	
+	@Override
+	public String toString() {
+		return "Account [custId=" + custId + ", acctId=" + acctId + ", balance=" + balance + "]";
+	}
 	
 }
