@@ -26,11 +26,12 @@ public class TestMyDateArray {
 	public void printArray(MyDate[] dates) {
 		//3.배열 출력
 		MyDate date = null;
+		// 기존 for loop
 		for (int i = 0; i < dates.length; i++) {
 			date = dates[i];
 			System.out.println(date.getYear()+"-"+date.getMonth()+"-"+date.getDay());
 		}
-		
+		// Enhanced for loop
 		for (MyDate myDate : dates) {
 			System.out.println(myDate.getYear()+"-"+myDate.getMonth()+"-"+myDate.getDay());
 		}	
