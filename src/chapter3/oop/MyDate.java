@@ -6,14 +6,14 @@ public class MyDate {
 	private int day;
 	
 	//default constructor
-	public MyDate() {
-		System.out.println("Default Constructor가 호출됨!!");
-	}
+//	public MyDate() {
+//		System.out.println("Default Constructor가 호출됨!!");
+//	}
 	//constructor overloading (생성자 중복정의)
 	public MyDate(int year, int month, int day) {
 		this.year = year;
-		//this.month = month;
-		setMonth(month);
+		this.month = month;
+//		setMonth(month);
 		this.day = day;
 	}
 	
