@@ -29,7 +29,7 @@ public class AccountTest {
 		// tostring: 아규먼트가 있는 생성자를 호출하거나 값을 출력하는 부분을 한꺼번에 호출해도 되지만, 투스트링 메서드를 사용한다.
 		// ToString();
 		// getClass().getName() + '@' + Integer.toHexString(hashCode())
-		// workshop.account.entity.Account@2a..?
+		// workshop.account.entity.Account@2a139a55
 		System.out.println(account2);
 	}
 }
