@@ -50,8 +50,18 @@ public class ManageBook {
 		double rate = 0.0;
 		// Magazine이면 40%, Novel이면 20%, ReferenceBook 이면 10%
 		if (pub instanceof Magazine) {
-			rate = 0.6;
+			rate = 0.6;		
 		}
+		if (pub instanceof Novel) {
+			rate = 0.8;		
+		}
+		if (pub instanceof ReferenceBook) {
+			rate = 0.9;		
+		}
+		
+		// 할인된 가격을 도출함
+		pub.setPrice((int)(pub.getPrice() * rate);
+	
 	}
 
 	// 없으면 각각 할인을 아래처럼 메서드를 계속 만들어 넣거나넣거나 아니면 위의 다형적 아규먼트를 이용해 하나의 메서드로 처리할 수 있음
