@@ -31,5 +31,11 @@ public class Fish extends Animal implements Pet {
 		System.out.println("물고기는 플랑크톤을 먹어요!");
 		
 	}
+	
+	@Override
+	public void walk() {
+		System.out.println("물고기는 걷지 않고 물에서 헤엄쳐요!");
+		
+	}	
 
 }
