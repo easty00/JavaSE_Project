@@ -49,6 +49,8 @@ public class Publication extends Object {
 		this.price = price;
 	}
 	
+	// 책 제목을 리턴해주는 투스트링 오버라이드
+	
 	@Override
 	public String toString() {
 		return this.title;
