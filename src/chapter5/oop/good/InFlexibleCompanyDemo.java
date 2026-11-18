@@ -11,8 +11,10 @@ public class InFlexibleCompanyDemo {
     	
     	// 직원타입
     	System.out.println(manager.getName() + " " + manager.getSalary());
+    	Manager m = (Manager)manager; // 직원타입의 매니저를 하위의 매니저 타입으로 변환
     	// 매니저타입
     	System.out.println(manager2.getName() + " " + manager.getSalary() + " " + manager2.getDepartment());
+    	m.getDepartment();
     	
 //        MereClerk mereClerk1 = new MereClerk("철수", 100);
 //        MereClerk mereClerk2 = new MereClerk("영희", 100);
