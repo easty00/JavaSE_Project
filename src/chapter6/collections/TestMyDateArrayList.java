@@ -28,7 +28,7 @@ public class TestMyDateArrayList {
 		
 		//Generics
 		ArrayList<String> list3 = new ArrayList<>(); // (1)
-		List<MyDate> list = new ArrayList<>(); // (2)
+		List<MyDate> list = new ArrayList<>(); // (2) 이쪽이 확장성 면에서 유리. 어제 설명해주심.
 		
 		//2. fillArrayList() 메서드를 호출하세요
 		fillArrayList(list);
