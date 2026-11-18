@@ -1,17 +1,16 @@
 package mylab.library.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Library {
 	
 	private String name;
-	private String books;
-
-	public Library() {
-		
-	}
+	private List<Book> books;
 	
 	public Library(String name) {
-		super();
 		this.name = name;
+		this.books = new ArrayList<>();
 	}
 
 	// 도서를 추가하는 메서드
@@ -59,7 +58,7 @@ public class Library {
 	
 	
 	public String getName() {
-
+		return name;
 	}
 
 }	

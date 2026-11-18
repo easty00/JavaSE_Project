@@ -48,7 +48,7 @@ public class LibraryManagementSystem {
 		System.out.println("책 제목: " + Title + "\t 저자: " + author + "\t  ISBN: " + isbn + "\t 출판년도: " + library.publishYear + "\t 대출 가능 여부: " + isAvailable);
 		
 		System.out.println("저자로 검색 결과");
-		
+	
 		
 	}
 	

@@ -30,11 +30,11 @@ public class Book {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getAuther() {
+	public String getAuthor() {
 		return author;
 	}
-	public void setAuther(String auther) {
-		this.author = auther;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 	public String getIsbn() {
 		return isbn;
