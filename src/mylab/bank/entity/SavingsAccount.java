@@ -15,13 +15,14 @@ public class SavingsAccount extends Account {
 	}
 
 	public void applyInterest() {
-		double Account.getBalance();
-		balance b 
+		double interest = getBalance()*interestRate;
+		deposit(interest);
+		System.out.println("이자 " + interest + "원이 적용되었습니다. 현재 잔액: " + getBalance() + "원");
 	}
 
 	@Override
 	public String toString() {
-		return "출금 한도를 초과했습니다. 한도: " + getBalance() + "원";
+		return super.toString() + ", 이자율: " + (interestRate * 100) + "%";
 	}
 	
 }
