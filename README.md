@@ -28,7 +28,7 @@
   - `mylab.student.entity.Student`
   - `mylab.student.control.StudentTest`
   - `mylab.student.exception.InvalidGradeException`
-- 소요시간 : 약 1시간
+- 소요시간 : 약 2시간
 - 어떻게 풀었는지
   - 수업 중 완성한 Account 예제를 참고하였다.
   - 학생정보의 클래스 다이어그램을 참고하여 필드를 작성하였고, 오늘 배운 generate Getters and Setters 를 이용하여 getter와 setter를 작성하였다.
