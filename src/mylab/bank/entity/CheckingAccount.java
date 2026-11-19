@@ -2,6 +2,7 @@ package mylab.bank.entity;
 
 import workshop.account.exception.InsufficientBalanceException;
 
+// 인출 한도가 있는 체킹계좌
 public class CheckingAccount extends Account {
 
 	private double withdrawalLimit;
@@ -21,7 +22,7 @@ public class CheckingAccount extends Account {
 	
 	@Override
 	public String toString() {
-		return "CheckingAccount [withdrawalLimit=" + withdrawalLimit + "]";
+		return "출금 한도를 초과했습니다. 한도: " + getBalance() + "원";
 	}
 
 	
