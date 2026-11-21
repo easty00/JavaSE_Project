@@ -27,7 +27,7 @@ public class ShoppingCart {
 		
 	}
 	
-	public int calculatieDiscountedPrice() {
+	public int calculateDiscountedPrice() {
 		
 	}
 	
@@ -35,7 +35,7 @@ public class ShoppingCart {
 		
 	}
 	
-	public void main(String[] arge) {
+	public static void main(String[] arge) {
 		
 	}
 
