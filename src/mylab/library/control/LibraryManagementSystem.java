@@ -40,11 +40,11 @@ public class LibraryManagementSystem {
 	
 	//제목과 저자로 도서를 검색하는 기능을 테스트하는 메서드
 	private static void testFindBook(Library library) {
-		System.out.println();
+		System.out.println("");
 		System.out.println("===== 도서 검색 테스트 =====");
 		System.out.println("제목으로 검색 결과: ");
 		System.out.println(library.findBookByTitle("자바의 정석"));
-		System.out.println();
+		System.out.println("");
 		System.out.println("저자로 검색 결과: ");
 		for (Book e : library.findBooksByAuthor("Robert C. Martin")) {
 			System.out.println(e);
@@ -53,7 +53,7 @@ public class LibraryManagementSystem {
 	
 	//도서 대출 기능을 테스트하는 메서드
 	private static void testCheckOut(Library library) {
-		System.out.println();
+		System.out.println("");
 		System.out.println("===== 도서 대출 테스트 =====");
 		if (library.checkOutBook("978-89-01-14077-4") == true) {
 			System.out.println("도서 대출 성공!");
@@ -71,7 +71,7 @@ public class LibraryManagementSystem {
 	
 	//도서 반납 기능을 테스트하는 메서드
 	private static void testReturn(Library library) {
-		System.out.println();
+		System.out.println("");
 		System.out.println("===== 도서 반납 테스트 =====");
 		if (library.returnBook("978-89-01-14077-4") == true) {
 			System.out.println("도서 반납 성공!");
@@ -80,7 +80,7 @@ public class LibraryManagementSystem {
 		}
 		System.out.println("반납된 도서 정보:");
 		System.out.println(library.findBookByISBN("978-89-01-14077-4"));
-		System.out.println();
+		System.out.println("");
 		System.out.println("도서관 현재 상태:");
 		System.out.println("전체 도서 수: " + library.getTotalBooks());
 		System.out.println("대출 가능 도서 수: " + library.getAvailableBooksCount());
@@ -89,7 +89,7 @@ public class LibraryManagementSystem {
 	
 	//대출 가능한 도서 목록을 출력하는 메서드
 	private static void displayAvailableBooks(Library library) {
-		System.out.println();
+		System.out.println("");
 		System.out.println("===== 대출 가능한 도서 목록 =====");
 		for (Book e : library.getAvailableBooks()) {
 			System.out.println(e);
